@@ -16,6 +16,14 @@ describe Airport do
     expect(subject.plane_array).to include(plane)
   end
 
+  describe "#land_plane(plane)" do
+    it "raises an error when airport full" do
+      Airport::DEFAULT_CAPACITY.times { subject.land_plane Plane.new }
+      expect { subject.land_plane(Plane.new) }.to raise_error "You cannot land the airport is full"
+    end
+  end
+
+
   it "Verifies take_off_plane exists" do
     expect(subject).to respond_to :take_off_plane
   end
@@ -23,6 +31,9 @@ describe Airport do
   it "Verifies take_off_plane includes an array" do
     expect(subject.plane_array).to include()
   end
+
+
+
 
 
   it { is_expected.to respond_to(:check_weather) }
@@ -33,7 +44,7 @@ describe Airport do
    # doesnt work?!?: it { is_expected(subject.check_weather).to eq("sunny") }
 
    #it { is_expected(subject.capacity).to eq(20)}
-   it "verify capacity is 20" do
+   it "verify when initialized capacity is 20" do
      expect(subject.capacity).to eq(20)
    end
 
