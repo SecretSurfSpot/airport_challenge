@@ -30,6 +30,11 @@ describe Airport do
   it "verifies check weather " do
     expect(subject.check_weather).to eq("sunny")
   end
-   #it { is_expected(subject.check_weather).to eq("sunny") }
+   # doesnt work?!?: it { is_expected(subject.check_weather).to eq("sunny") }
+
+   #it { is_expected(subject.capacity).to eq(20)}
+   it "verify capacity is 20" do
+     expect(subject.capacity).to eq(20)
+   end
 
 end

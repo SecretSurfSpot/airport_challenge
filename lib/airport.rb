@@ -1,11 +1,12 @@
 require_relative "plane"
 
 class Airport
+  DEFAULT_CAPACITY = 20
+  attr_reader :plane_array, :capacity
 
-  attr_reader :plane_array
-
-  def initialize
+  def initialize(capacity=DEFAULT_CAPACITY)
     @plane_array = []
+    @capacity = capacity
   end
 
   # Method creates new plane (airport will have a new plane when plane lands)
