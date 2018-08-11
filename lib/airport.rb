@@ -14,5 +14,10 @@ class Airport
   end
 
   def take_off_plane
+    @plane_array.pop
+  end
+
+  def check_weather
+    rand(1..10) < 9 ? "sunny" : "stormy"
   end
 end
