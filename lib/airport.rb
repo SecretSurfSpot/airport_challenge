@@ -11,8 +11,12 @@ class Airport
 
   # Method creates new plane (airport will have a new plane when plane lands)
   def land_plane(plane)
-    raise "You cannot land the airport is full" if full?
-    @plane_array << plane
+    if check_weather # if sunny weather then you can land
+      raise "You cannot land the airport is full" if full?
+      @plane_array << plane
+    else
+      # cant land so do nothing for moment
+    end
   end
 
   def take_off_plane

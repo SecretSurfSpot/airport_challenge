@@ -13,6 +13,7 @@ describe Airport do
     # Need to verify a plane landed (plane_array includes a plane)
     plane = Plane.new
     subject.land_plane(plane)
+    subject.check_weather
     expect(subject.plane_array).to include(plane)
   end
 
