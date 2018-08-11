@@ -10,14 +10,17 @@ describe Airport do
   # it { is_expected.to respond_to(:land_plane).with(1).argument }
 
 
-  # it "Verifies a plane landed" do
-  #   # Need to verify a plane landed (landed = true?)
-  #   plane = subject.land_plane(plane)
-  #   expect(plane).to be_plane_exists
-  # end
+  it "Verifies a plane landed" do
+    # Need to verify a plane landed (plane_array includes a plane)
+    plane = Plane.new
+    subject.land_plane(plane)
+    expect(subject.plane_array).to include(plane)
+  end
 
   it "Verifies take_off_plane exists" do
     expect(subject).to respond_to :take_off_plane
   end
+
+
 
 end
