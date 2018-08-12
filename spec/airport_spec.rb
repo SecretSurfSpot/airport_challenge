@@ -2,10 +2,8 @@ require "airport"
 require "plane"
 
 describe Airport do
-#  let(:mockFeedback) { double :feedback, happiness: 4 }
   #let(:mockCheckWeather) { double :check_weather, check_weather: "sunny" }
   let(:mockCheckWeather) { "sunny" }
-#  let(:mockCheckWeather) { double :"sunny", check_weather: "sunny" }
 
   it "Verifies land_plane exists" do
     expect(subject).to respond_to(:land_plane).with(1).argument
@@ -19,7 +17,6 @@ describe Airport do
     subject.land_plane(plane)
     # subject.check_weather
     # mockCheckWeather
-    # p mockCheckWeather
     expect(subject.plane_array).to include(plane)
   end
 
@@ -39,6 +36,8 @@ describe Airport do
   it "Verifies take_off_plane includes an array" do
     expect(subject.plane_array).to include()
   end
+
+
 
   # Need test for take_off_plane and check error being raised if stormy weather
 

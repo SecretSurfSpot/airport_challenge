@@ -12,17 +12,11 @@ class Airport
   # Method creates new plane (airport will have a new plane when plane lands)
   def land_plane(plane)
     raise "You cannot land the airport is full" if full?
-    @plane_array << plane if check_weather
+    @plane_array << plane if check_weather # if sunny weather then you can land
   end
 
   def take_off_plane
-    if check_weather == "sunny" # if sunny weather then you can take_off
-      # p "weather is #{check_weather}"
-      @plane_array.pop
-    else
-      # p "cant take off - bad weather"
-      # cant land, so do nothing for moment
-    end
+    @plane_array.pop if check_weather # if sunny weather then you can take_off
   end
 
   def check_weather
