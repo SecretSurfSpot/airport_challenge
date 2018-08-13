@@ -13,6 +13,7 @@ describe Airport do
 
   it "Verifies a plane landed" do
     # Need to verify a plane landed (plane_array includes a plane)
+    allow(subject).to receive(:check_weather) {"sunny"}
     plane = Plane.new
     subject.land_plane(plane)
     # subject.check_weather
@@ -22,6 +23,7 @@ describe Airport do
 
   describe "#land_plane(plane)" do
     it "raises an error when airport full" do
+      allow(subject).to receive(:check_weather) {"sunny"}
       Airport::DEFAULT_CAPACITY.times { subject.land_plane Plane.new }
       expect { subject.land_plane(Plane.new) }.to raise_error "You cannot land the airport is full"
     end
